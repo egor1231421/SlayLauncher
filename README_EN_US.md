@@ -1,5 +1,7 @@
-# Zalith Launcher 2
-![Downloads](https://img.shields.io/github/downloads/ZalithLauncher/ZalithLauncher2/total)
+# Slay Launcher
+> **Unofficial modified version** — based on Zalith Launcher 2 and maintained by SlayWin and Proshkawin. Not affiliated with the original developers.
+
+![Downloads](https://img.shields.io/github/downloads/egor1231421/SlayLauncher/total)
 [![Sponsor](https://img.shields.io/badge/sponsor-30363D?logo=GitHub-Sponsors)](https://afdian.com/a/MovTery)
 
 [简体中文](README.md) | [繁體中文](README_ZH_TW.md)
@@ -33,7 +35,7 @@ Thank you to every language contributor for helping make Zalith Launcher 2 more 
 ### Build Steps
 
 ```bash
-git clone git@github.com:ZalithLauncher/ZalithLauncher2.git
+git clone https://github.com/egor1231421/SlayLauncher.git
 # Open the project in Android Studio and build
 ```
 

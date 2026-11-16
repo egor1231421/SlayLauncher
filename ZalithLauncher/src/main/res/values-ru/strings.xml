@@ -1248,4 +1248,8 @@
     <string name="guide_joystick_events_lock_text4">Нажмите на кнопку, чтобы отредактировать события срабатывания</string>
     <string name="guide_joystick_events_events_text1">Задействуемые события такие же, как у обычных кнопок, — свободы очень много</string>
     <string name="guide_joystick_events_events_text2">Если нужно только управлять игрой, просто отредактируйте привязки клавиш в разделе «Клавиша»</string>
+    <string name="about_launcher_fork_maintainers_title">SlayWin &amp; Proshkawin</string>
+    <string name="about_launcher_fork_maintainers_text">Сопровождающие форк Slay Launcher</string>
+    <string name="about_launcher_upstream_copyright">Copyright (C) 2025-2026 MovTery and contributors. GPL-3.0.</string>
+    <string name="unofficial_modified_version_notice">НЕОФИЦИАЛЬНАЯ МОДИФИКАЦИЯ • На основе Zalith Launcher 2</string>
 </resources>

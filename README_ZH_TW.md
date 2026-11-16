@@ -1,5 +1,7 @@
-# Zalith Launcher 2
-![Downloads](https://img.shields.io/github/downloads/ZalithLauncher/ZalithLauncher2/total)
+# Slay Launcher
+> **非官方修改版**：Slay Launcher 基於 Zalith Launcher 2，由 SlayWin 與 Proshkawin 維護。
+
+![Downloads](https://img.shields.io/github/downloads/egor1231421/SlayLauncher/total)
 [![Sponsor](https://img.shields.io/badge/sponsor-30363D?logo=GitHub-Sponsors)](https://afdian.com/a/MovTery)
 
 [English](README_EN_US.md) | [简体中文](README.md)
@@ -39,7 +41,7 @@
 ### 構建步驟
 
 ```bash
-git clone git@github.com:ZalithLauncher/ZalithLauncher2.git
+git clone https://github.com/egor1231421/SlayLauncher.git
 # 使用 Android Studio 開啟專案並進行構建
 ```
 
