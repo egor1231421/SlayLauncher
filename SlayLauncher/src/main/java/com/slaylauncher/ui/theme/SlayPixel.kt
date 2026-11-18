@@ -31,6 +31,35 @@ class SlayCutShape(
     }
 }
 
+/** Plate with independently chamfered corners, used for grouped settings cards. */
+class SlayPlateShape(
+    private val cutTopStart: Dp = 0.dp,
+    private val cutTopEnd: Dp = 0.dp,
+    private val cutBottomStart: Dp = 0.dp,
+    private val cutBottomEnd: Dp = 0.dp
+) : Shape {
+    override fun createOutline(size: Size, layoutDirection: LayoutDirection, density: Density): Outline {
+        val maxCut = minOf(size.width, size.height) / 3f
+        fun Dp.px(): Float = with(density) { toPx() }.coerceAtMost(maxCut)
+        val ts = cutTopStart.px()
+        val te = cutTopEnd.px()
+        val bs = cutBottomStart.px()
+        val be = cutBottomEnd.px()
+        val path = Path().apply {
+            moveTo(ts, 0f)
+            lineTo(size.width - te, 0f)
+            lineTo(size.width, te)
+            lineTo(size.width, size.height - be)
+            lineTo(size.width - be, size.height)
+            lineTo(bs, size.height)
+            lineTo(0f, size.height - bs)
+            lineTo(0f, ts)
+            close()
+        }
+        return Outline.Generic(path)
+    }
+}
+
 object SlayPalette {
     val accent = Color(0xFF5EC64D)
     val accentSoft = Color(0x215EC64D)

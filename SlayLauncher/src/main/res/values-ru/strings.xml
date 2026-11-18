@@ -1253,4 +1253,9 @@
     <string name="slay_tab_catalog">КАТАЛОГ</string>
     <string name="slay_tab_servers">СЕРВЕРЫ</string>
     <string name="slay_tab_more">ЕЩЁ</string>
+    <string name="slay_lobby_versions">ВЕРСИИ</string>
+    <string name="slay_lobby_builds">ВАШИ СБОРКИ</string>
+    <string name="slay_lobby_install">УСТАНОВИТЬ</string>
+    <string name="slay_lobby_active_build">АКТИВНАЯ СБОРКА</string>
+    <string name="slay_lobby_select_version">Выберите версию</string>
 </resources>

@@ -26,7 +26,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
+import com.slaylauncher.ui.theme.SlayPlateShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -157,46 +157,25 @@ fun rememberSettingsCardShape(
     outerShape: Dp = 28.dp,
     innerShape: Dp = 4.dp
 ): Shape {
-    return remember(position, outerShape, innerShape) {
+    // Settings use the same chamfered plate language as the main lobby.
+    // The legacy shape arguments are kept for source compatibility.
+    val outer = 10.dp
+    val inner = 0.dp
+    return remember(position, outerShape, innerShape, outer, inner) {
         when (position) {
-            CardPosition.Top -> RoundedCornerShape(
-                topStart = outerShape,
-                topEnd = outerShape,
-                bottomStart = innerShape,
-                bottomEnd = innerShape
+            CardPosition.Top -> SlayPlateShape(cutTopStart = outer, cutTopEnd = outer)
+            CardPosition.TopStart -> SlayPlateShape(cutTopStart = outer)
+            CardPosition.TopEnd -> SlayPlateShape(cutTopEnd = outer)
+            CardPosition.Middle -> SlayPlateShape()
+            CardPosition.Bottom -> SlayPlateShape(cutBottomStart = outer, cutBottomEnd = outer)
+            CardPosition.BottomStart -> SlayPlateShape(cutBottomStart = outer)
+            CardPosition.BottomEnd -> SlayPlateShape(cutBottomEnd = outer)
+            CardPosition.Single -> SlayPlateShape(
+                cutTopStart = outer,
+                cutTopEnd = outer,
+                cutBottomStart = outer,
+                cutBottomEnd = outer
             )
-            CardPosition.TopStart -> RoundedCornerShape(
-                topStart = outerShape,
-                topEnd = innerShape,
-                bottomStart = innerShape,
-                bottomEnd = innerShape
-            )
-            CardPosition.TopEnd -> RoundedCornerShape(
-                topStart = innerShape,
-                topEnd = outerShape,
-                bottomStart = innerShape,
-                bottomEnd = innerShape
-            )
-            CardPosition.Middle -> RoundedCornerShape(innerShape)
-            CardPosition.Bottom -> RoundedCornerShape(
-                topStart = innerShape,
-                topEnd = innerShape,
-                bottomStart = outerShape,
-                bottomEnd = outerShape
-            )
-            CardPosition.BottomStart -> RoundedCornerShape(
-                topStart = innerShape,
-                topEnd = innerShape,
-                bottomStart = outerShape,
-                bottomEnd = innerShape
-            )
-            CardPosition.BottomEnd -> RoundedCornerShape(
-                topStart = innerShape,
-                topEnd = innerShape,
-                bottomStart = innerShape,
-                bottomEnd = outerShape
-            )
-            CardPosition.Single -> RoundedCornerShape(outerShape)
         }
     }
 }

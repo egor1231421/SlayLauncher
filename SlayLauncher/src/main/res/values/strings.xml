@@ -3093,4 +3093,9 @@
     <string name="slay_tab_catalog">CATALOG</string>
     <string name="slay_tab_servers">SERVERS</string>
     <string name="slay_tab_more">MORE</string>
+    <string name="slay_lobby_versions">VERSIONS</string>
+    <string name="slay_lobby_builds">YOUR BUILDS</string>
+    <string name="slay_lobby_install">INSTALL</string>
+    <string name="slay_lobby_active_build">ACTIVE BUILD</string>
+    <string name="slay_lobby_select_version">Select version</string>
 </resources>

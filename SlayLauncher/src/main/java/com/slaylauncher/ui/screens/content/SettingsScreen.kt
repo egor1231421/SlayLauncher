@@ -18,6 +18,8 @@
 
 package com.slaylauncher.ui.screens.content
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -28,18 +30,21 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationRailItem
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation3.runtime.entryProvider
 import com.slaylauncher.R
@@ -64,6 +69,8 @@ import com.slaylauncher.ui.screens.content.settings.JavaManageScreen
 import com.slaylauncher.ui.screens.content.settings.LauncherSettingsScreen
 import com.slaylauncher.ui.screens.content.settings.RendererSettingsScreen
 import com.slaylauncher.ui.screens.navigateOnce
+import com.slaylauncher.ui.theme.SlayPalette
+import com.slaylauncher.ui.theme.slayPixelSurface
 import com.slaylauncher.ui.screens.onBack
 import com.slaylauncher.ui.screens.rememberTransitionSpec
 import com.slaylauncher.viewmodel.ErrorViewModel
@@ -132,41 +139,62 @@ private fun TabMenu(
     Column(
         modifier = modifier
             .fadeEdge(scrollState)
-            .width(IntrinsicSize.Min)
+            .width(178.dp)
             .padding(start = 8.dp)
             .animated(ctx, from = AnimatedDirection.Left)
             .verticalScroll(scrollState),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Spacer(modifier = Modifier.height(12.dp))
+        Text(
+            text = stringResource(R.string.generic_setting).uppercase(),
+            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
+            color = SlayPalette.accent
+        )
+        Spacer(modifier = Modifier.height(8.dp))
         settingItems.forEach { item ->
             if (item.division) {
                 HorizontalDivider(
                     modifier = Modifier
                         .padding(vertical = 12.dp)
-                        .fillMaxWidth(0.4f)
+                        .fillMaxWidth(0.7f)
                         .alpha(0.4f),
-                    color = MaterialTheme.colorScheme.onSurface
+                    color = SlayPalette.outline
                 )
             }
 
-            NavigationRailItem(
-                selected = settingsScreenKey == item.key,
-                onClick = {
-                    navigateTo(item.key)
-                },
-                icon = {
-                    item.icon()
-                },
-                label = {
+            val selected = settingsScreenKey == item.key
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(48.dp)
+                    .slayPixelSurface(
+                        fill = if (selected) SlayPalette.accentSoft else SlayPalette.surface,
+                        cut = 6.dp,
+                        outline = if (selected) SlayPalette.accent else Color(0x12FFFFFF),
+                        bottomBand = if (selected) SlayPalette.bandBottom else SlayPalette.bandBottomSoft
+                    )
+                    .clickable { navigateTo(item.key) },
+                contentAlignment = Alignment.CenterStart
+            ) {
+                Row(
+                    modifier = Modifier.padding(horizontal = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Box(modifier = Modifier.size(20.dp), contentAlignment = Alignment.Center) {
+                        item.icon()
+                    }
                     MarqueeText(
+                        modifier = Modifier.weight(1f),
                         text = stringResource(item.textRes),
-                        style = MaterialTheme.typography.labelMedium
+                        style = MaterialTheme.typography.labelMedium,
+                        color = if (selected) SlayPalette.accent else SlayPalette.fg
                     )
                 }
-            )
+            }
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(6.dp))
         }
     }
 }
