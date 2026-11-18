@@ -245,9 +245,6 @@
     <string name="generic_cannot_empty">コンテンツは空にできません！</string>
     <string name="url_wiki_minecraft_game_snapshot">https://minecraft.wiki/w/Java_Edition_%s</string>
     <string name="url_wiki_minecraft_game_release">https://minecraft.wiki/w/Java_Edition_%s</string>
-    <string name="about_acknowledgements_pojav_text">%s はPojavLauncherの起動バックエンドを使用しています</string>
-    <string name="about_acknowledgements_modrinth_text">%s はModrinthのプレイヤーモデルアニメーションプリセットを移植しています</string>
-    <string name="about_acknowledgements_pcl_text">%s はPCL2のコードの一部を参照しています</string>
     <string name="settings_launcher_full_screen_title">全画面モード</string>
     <string name="settings_control_gesture_trigger_mouse_left">左クリック</string>
     <string name="settings_control_gesture_trigger_mouse_right">右クリック</string>
@@ -341,14 +338,8 @@
     <string name="settings_renderer_resolution_scale_title">画面の解像度</string>
     <string name="about_launcher_title">ランチャーについて</string>
     <string name="about_launcher_version">ランチャーバージョン: %s</string>
-    <string name="about_launcher_author_movtery_title">MovTery</string>
-    <string name="about_launcher_author_movtery_text">%s の作者</string>
     <string name="about_launcher_project_link">プロジェクトリンク</string>
     <string name="about_sponsor">スポンサーの支援</string>
-    <string name="about_acknowledgements_title">謝辞</string>
-    <string name="about_acknowledgements_mcmod">MC百科 (mcmod.cn)</string>
-    <string name="about_acknowledgements_mcmod_text">%s はMCModによる簡体字中国語のモッドおよびモッドパック翻訳を使用しています</string>
-    <string name="about_acknowledgements_bangbang93_text">%s はBMCL APIミラーソースを使用しています</string>
     <string name="about_plugin_title">ロードされたプラグイン</string>
     <string name="about_library_title">サードパーティー製ライブラリ</string>
     <string name="settings_control_gesture_long_press_action_title">長押し時のアクションタイプ</string>
@@ -397,8 +388,6 @@
     <string name="download_modpack_get_loaders">ローダー情報を取得</string>
     <string name="download_modpack_warning2">問題を自分で解決するには関連する知識を学ぶか、他の人に助けてもらう必要があります。</string>
     <string name="download_modpack_warning3">注意: ランチャー開発者は通常モッドパックによって引き起こされる問題を処理しません。</string>
-    <string name="about_acknowledgements_fcl_text">%s はFCLのコードを組み込みその実装の一部を参照しています</string>
-    <string name="about_acknowledgements_hmcl_text">%s はHMCLのコードを組み込みその実装の一部を参照しています</string>
     <string name="control_keyboard_bind_summary">キーボードで割り当てたいキーを入力</string>
     <string name="settings_launcher_log_share_title">ランチャーログを共有</string>
     <string name="settings_launcher_animate_speed_title">アニメーション速度</string>
@@ -757,10 +746,6 @@
     <string name="settings_control_gyroscope_invert_y_title">Y軸を反転</string>
     <string name="settings_control_mouse_pointer_reset_message">マウスポインターをデフォルトに戻しますか？</string>
     <string name="control_editor_layers_merge_downward">下のコントロールと結合</string>
-    <string name="about_acknowledgements_github_community">GitHub コミュニティ</string>
-    <string name="about_acknowledgements_github_community_text">GitHub コミュニティの全ての問題報告者と貢献者</string>
-    <string name="about_acknowledgements_weblate_community">Weblate コミュニティ</string>
-    <string name="about_acknowledgements_weblate_community_text">コミュニティ言語のローカライズに協力したすべての翻訳者</string>
     <string name="versions_manage_game_path_storage_permissions_sdk30">ゲームを外部ストレージにインストールしますか？まずランチャーの全てのデバイスのファイルを管理を有効にしてください。そうしないと、ゲームを外部ディレクトリにインストールできません！</string>
     <string name="versions_manage_delete_version_tip_hint3">バージョン分離が有効ではない場合、ゲームファイルはルートディレクトリに保存されるため、バージョンを削除してもすべてのファイルが削除されるわけではありません。</string>
     <string name="versions_manage_delete_version_tip_hint4">続行する前に重要なデータをバックアップして、注意して削除してください！</string>
@@ -1006,7 +991,6 @@
     <string name="upgrade_get_remote_failed">アップデートの確認に失敗しました。後ほどもう一度お試しください。</string>
     <string name="upgrade_is_latest">すでに最新バージョンです</string>
     <string name="upgrade_cloud_drive">クラウドドライブ</string>
-    <string name="about_acknowledgements_mcim_text">%s はMCIMミラーソースを使っています</string>
     <string name="settings_launcher_language">言語</string>
     <string name="generic_copied">コピー済み</string>
     <string name="crash_link_share_button">リンクを共有</string>

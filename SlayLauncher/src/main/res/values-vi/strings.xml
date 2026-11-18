@@ -240,14 +240,6 @@
     <string name="settings_launcher_log_share_title">Gửi log launcher</string>
     <string name="settings_launcher_log_share_summary">Bấm để gửi log cho dev fix lỗi</string>
     <string name="settings_launcher_log_share_packing">Đang nén log</string>
-    <string name="about_acknowledgements_title">Lời cảm ơn</string>
-    <string name="about_acknowledgements_pojav_text">%s dùng backend từ PojavLauncher</string>
-    <string name="about_acknowledgements_modrinth_text">%s dùng các mẫu hoạt ảnh mô hình người chơi từ Modrinth</string>
-    <string name="about_acknowledgements_pcl_text">%s tham khảo code PCL2</string>
-    <string name="about_acknowledgements_fcl_text">%s dùng và tham khảo code từ FCL</string>
-    <string name="about_acknowledgements_hmcl_text">%s dùng và tham khảo code từ HMCL</string>
-    <string name="about_acknowledgements_mcmod">MCMod (mcmod.cn)</string>
-    <string name="about_acknowledgements_mcmod_text">%s dùng bản dịch mod/modpack tiếng Trung từ MCMod</string>
     <string name="about_plugin_title">Plugin đã tải</string>
     <string name="about_library_title">Thư viện bên thứ ba</string>
     <string name="url_wiki_minecraft_game_release">https://minecraft.wiki/w/Java_Edition_%s</string>
@@ -589,7 +581,6 @@
     <string name="versions_manage_category_modloader">Có thể cài mod</string>
     <string name="settings_launcher_mirror_official">Cố gắng sử dụng nguồn chính thức</string>
     <string name="settings_launcher_mirror_mirror">Cố gắng sử dụng nguồn mirror</string>
-    <string name="about_acknowledgements_bangbang93_text">%s dùng gương BMCL API</string>
     <string name="mods_manage">Mod</string>
     <string name="mods_manage_info">Thông tin mod</string>
     <string name="mods_manage_authors">Tác giả:</string>
@@ -604,8 +595,6 @@
     <string name="shader_pack_manage_no_packs">Chưa có shader</string>
     <string name="about_launcher_title">Về launcher</string>
     <string name="about_launcher_version">Phiên bản: %s</string>
-    <string name="about_launcher_author_movtery_title">MovTery</string>
-    <string name="about_launcher_author_movtery_text">Tác giả %s</string>
     <string name="about_launcher_project_link">Địa chỉ dự án</string>
     <string name="about_sponsor">Ủng hộ</string>
     <string name="crash_type">Loại sự cố: %s</string>
@@ -824,10 +813,6 @@
     <string name="error_import_file">Có 1 lỗi xảy ra khi nhập tệp</string>
     <string name="saves_manage_import_unpacking">Đang giải nén bản lưu: %s</string>
     <string name="saves_manage_import_failed">Lỗi nhập bản lưu</string>
-    <string name="about_acknowledgements_github_community">Cộng đồng Github</string>
-    <string name="about_acknowledgements_github_community_text">Toàn bộ người báo lỗi và đóng góp trên Github</string>
-    <string name="about_acknowledgements_weblate_community">Cộng đồng Weblate</string>
-    <string name="about_acknowledgements_weblate_community_text">Các dịch giả bản địa hóa</string>
     <string name="theme_color_picker_edit_hex">Sửa mã Hex</string>
     <string name="theme_color_picker_edit_hex_invalid">Hex không hợp lệ</string>
     <string name="download_game_type_april_fools">Cá tháng tư</string>
@@ -1176,7 +1161,6 @@
     <string name="control_editor_edit_dialog_delete_widget">Bạn có chắc muốn xoá cái widget này không?</string>
     <string name="control_editor_edit_style_config_common_style">Bỏ qua nền tối</string>
     <string name="control_editor_edit_style_config_delete">Bạn có chắc muốn xoá giao diện điều khiển %s?</string>
-    <string name="about_acknowledgements_mcim_text">%s sử dụng máy chủ mirror MCIM</string>
     <string name="vibrate_kind_one_shot">Rung liên tục</string>
     <string name="vibrate_kind_click">Nhấp</string>
     <string name="vibrate_kind_double_click">Nhấp đúp</string>

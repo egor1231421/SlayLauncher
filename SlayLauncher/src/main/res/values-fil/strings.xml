@@ -313,5 +313,4 @@
     <string name="guide_joystick_events_lock_text4">I-tap ang button para i-edit ang mga trigger event nito</string>
     <string name="guide_joystick_events_events_text1">Ang mga event na maaaring i-trigger ay pareho lang ng sa mga ordinaryong button, napakalaya nito</string>
     <string name="guide_joystick_events_events_text2">Kung gusto mo lang kontrolin ang laro, i-edit lang ang mga aktwal na key binding sa section na “Key”</string>
-    <string name="about_acknowledgements_modrinth_text">%s nag-port ng mga preset ng animation ng player model mula sa Modrinth</string>
 </resources>

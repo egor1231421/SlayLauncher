@@ -52,8 +52,7 @@ import top.yukonga.miuix.kmp.utils.MiuixOverscrollFactory
 
 /**
  * SlayLauncher look: dark graphite plates, green accent, hard bevels.
- * The palette is intentionally close to modern Minecraft launchers and
- * deliberately unlike the stock Zalith-style UI.
+ * The palette is intentionally close to modern Minecraft launchers.
  */
 private val SlayNeonDark = darkColorScheme(
     primary = SlayPalette.accent,

@@ -97,32 +97,8 @@ object HomeCards {
 
     /** 系统卡片（不可变更） */
     fun systemCards(): List<SystemCard> = buildList {
-        // GPLv3 additional terms: every modified build must clearly identify itself as unofficial.
-        add(unofficialBuildWarningCard())
         if (BuildConfig.DEBUG) {
             add(debugWarningCard())
-        }
-    }
-
-    /** Always visible notice: this is an independent, unofficial modified build. */
-    private fun unofficialBuildWarningCard() = SystemCard(id = "system_unofficial_build_warning") {
-        BackgroundCard(
-            modifier = Modifier.fillMaxWidth(),
-            shape = MaterialTheme.shapes.extraLarge
-        ) {
-            Column(
-                modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
-                verticalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                Text(
-                    text = stringResource(R.string.unofficial_build_warning_title),
-                    style = MaterialTheme.typography.titleMedium
-                )
-                Text(
-                    text = stringResource(R.string.unofficial_build_warning, BuildKeys.LAUNCHER_NAME),
-                    style = MaterialTheme.typography.bodyMedium
-                )
-            }
         }
     }
 

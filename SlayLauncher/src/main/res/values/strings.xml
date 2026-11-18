@@ -127,9 +127,6 @@
     <string name="launcher_version_debug_warning">You are using a test version of %s! This version may be unstable and is primarily intended for feature testing and early access. It is not recommended for long-term use! If you encounter any issues during testing, please report them to us via GitHub and we will address them as soon as possible.</string>
     <!-- Caption on the test build warning card explaining it cannot be dismissed -->
     <string name="launcher_version_debug_warning_cant_close">This warning cannot be dismissed</string>
-    <!-- Clearly marks this independent fork as unofficial, as required by the upstream GPLv3 additional terms. -->
-    <string name="unofficial_build_warning_title">Unofficial modified build</string>
-    <string name="unofficial_build_warning">%1$s is an independent, unofficial modification of an open-source Minecraft launcher (GPL-3.0). It is not developed, endorsed or supported by the original authors. Use it at your own risk.</string>
     <!-- Option of the theme color setting in launcher settings -->
     <string name="theme_color_dynamic">Dynamic (Android 12+)</string>
     <!-- Option of the theme color setting in launcher settings -->
@@ -2594,12 +2591,12 @@
     <string name="control_editor_exit_confirm">Exit Directly</string>
     <!-- Section title on the About page describing the launcher itself -->
     <string name="about_launcher_title">About Launcher</string>
+    <string name="about_creators_title">Creators</string>
+    <string name="about_creator_role">Creator of %s</string>
     <!-- Line under the launcher name on the About page; %s is the version number -->
     <string name="about_launcher_version">Launcher Version: %s</string>
     <!-- Name of the launcher author shown as an item title on the About page -->
-    <string name="about_launcher_author_movtery_title">MovTery</string>
     <!-- Description under the author name on the About page; %s is the launcher name -->
-    <string name="about_launcher_author_movtery_text">Author of %s</string>
     <!-- Button on the About page opening the project website -->
     <string name="about_launcher_project_link">Project Link</string>
     <!-- Button on the About page opening the sponsorship page; also the title of the sponsorship dialog -->
@@ -2617,33 +2614,19 @@
     <!-- Summary of the last month sponsors settlement dialog; %s is the hardcoded launcher name -->
     <string name="sponsors_last_month_summary">Here are the sponsors who supported %s last month. Thanks for all your support!</string>
     <!-- Section title of the acknowledgements list on the About page -->
-    <string name="about_acknowledgements_title">Acknowledgements</string>
     <!-- Description of the PojavLauncher item in the acknowledgements; %s is the launcher name -->
-    <string name="about_acknowledgements_pojav_text">%s uses the launch backend from PojavLauncher</string>
     <!-- Description of the Modrinth item in the acknowledgements; %s is the launcher name -->
-    <string name="about_acknowledgements_modrinth_text">%s ports the player model animation presets from Modrinth</string>
     <!-- Description of the Plain Craft Launcher 2 item in the acknowledgements; %s is the launcher name -->
-    <string name="about_acknowledgements_pcl_text">%s references parts of the implementation from PCL2</string>
     <!-- Description of the Fold Craft Launcher item in the acknowledgements; %s is the launcher name -->
-    <string name="about_acknowledgements_fcl_text">%s incorporates code from FCL and references parts of its implementation</string>
     <!-- Description of the Hello Minecraft! Launcher item in the acknowledgements; %s is the launcher name -->
-    <string name="about_acknowledgements_hmcl_text">%s incorporates code from HMCL and references parts of its implementation</string>
     <!-- Title of the MCMod website item in the acknowledgements list -->
-    <string name="about_acknowledgements_mcmod">MCMod (mcmod.cn)</string>
     <!-- Description of the MCMod item in the acknowledgements; %s is the launcher name -->
-    <string name="about_acknowledgements_mcmod_text">%s uses Simplified Chinese translations of mods and modpacks from MCMod</string>
     <!-- Description of the bangbang93 item (BMCLAPI provider) in the acknowledgements; %s is the launcher name -->
-    <string name="about_acknowledgements_bangbang93_text">%s uses the BMCL API mirror source</string>
     <!-- Description of the mcmod-info-mirror item in the acknowledgements; %s is the launcher name -->
-    <string name="about_acknowledgements_mcim_text">%s uses the MCIM mirror source</string>
     <!-- Title of the GitHub community item in the acknowledgements list -->
-    <string name="about_acknowledgements_github_community">GitHub Community</string>
     <!-- Description of the GitHub community item in the acknowledgements -->
-    <string name="about_acknowledgements_github_community_text">All issue reporters and contributors from the GitHub community</string>
     <!-- Title of the Weblate community item in the acknowledgements list -->
-    <string name="about_acknowledgements_weblate_community">Weblate Community</string>
     <!-- Description of the Weblate community item, crediting all translators -->
-    <string name="about_acknowledgements_weblate_community_text">All translators who participated in community language localization</string>
     <!-- Section title on the About page listing loaded plugins -->
     <string name="about_plugin_title">Loaded Plugins</string>
     <!-- Section title on the About page listing third-party libraries -->

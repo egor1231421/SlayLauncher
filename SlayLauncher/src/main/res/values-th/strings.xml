@@ -439,5 +439,4 @@
     <string name="guide_joystick_events_lock_text4">แตะปุ่มเพื่อแก้ไขอีเวนต์ทริกเกอร์</string>
     <string name="guide_joystick_events_events_text1">อีเวนต์ที่ทริกเกอร์ได้จะเหมือนกับปุ่มปกติ ยืดหยุ่นสูงมาก</string>
     <string name="guide_joystick_events_events_text2">หากต้องการเพียงควบคุมเกม แค่แก้ไขการผูกปุ่มจริงในส่วน “ปุ่ม” ก็พอ</string>
-    <string name="about_acknowledgements_modrinth_text">%s พอร์ตพรีเซ็ตภาพเคลื่อนไหวโมเดลผู้เล่นจาก Modrinth</string>
 </resources>

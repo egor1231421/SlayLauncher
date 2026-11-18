@@ -370,12 +370,8 @@
     <string name="account_logging_not_purchased_minecraft">Propriedade do Minecraft não verificada. Compre no site oficial do Minecraft.</string>
     <string name="about_launcher_title">Sobre o launcher</string>
     <string name="about_launcher_version">Versão do launcher: %s</string>
-    <string name="about_launcher_author_movtery_title">MovTery</string>
-    <string name="about_launcher_author_movtery_text">Autor de %s</string>
     <string name="about_launcher_project_link">Link do projeto</string>
     <string name="about_sponsor">Apoiar</string>
-    <string name="about_acknowledgements_mcmod">MCMod (mcmod.cnc)</string>
-    <string name="about_acknowledgements_mcmod_text">%s utiliza o chinês simplificado nas traduções dos mods e modpacks do MCMod</string>
     <string name="about_plugin_title">Plugins carregados</string>
     <string name="about_library_title">Bibliotecas de terceiros</string>
     <string name="url_wiki_minecraft_game_release">https://minecraft.wiki/w/Java_Edition_%s</string>
@@ -623,13 +619,6 @@
     <string name="settings_launcher_log_share_packing">Arquivos de registro do inicializador de pacotes</string>
     <string name="settings_launcher_mirror_official">De fontes oficiais</string>
     <string name="settings_launcher_mirror_mirror">Do espelho</string>
-    <string name="about_acknowledgements_pojav_text">%s utiliza o backend do PojavLauncher</string>
-    <string name="about_acknowledgements_modrinth_text">%s porta as predefinições de animação do modelo de jogador do Modrinth</string>
-    <string name="about_acknowledgements_bangbang93_text">%s utiliza a API BMCL da fonte mirror</string>
-    <string name="about_acknowledgements_title">Agradecimentos</string>
-    <string name="about_acknowledgements_pcl_text">%s retribui parte da implementação do PCL2</string>
-    <string name="about_acknowledgements_fcl_text">%s incorpora o código do FCL e retribui parte de sua implementação</string>
-    <string name="about_acknowledgements_hmcl_text">%s incorpora o código do HMCL e retribui parte de sua colaboração</string>
     <string name="versions_manage_cleanup">Limpar arquivos de jogo</string>
     <string name="versions_manage_cleanup_tip">O lançador irá verificar os arquivos do jogo instalado, compará-los com os arquivos necessários das versões, e então apagar arquivos não usados. Isso pode economizar muito espaço no seu dispositivo.</string>
     <string name="versions_manage_cleanup_warning">Nota: O lançador vai apenas escanear as seguintes pastas do diretório do jogo atual:</string>
@@ -782,8 +771,6 @@
     <string name="settings_control_gyroscope_sensitivity_title">Sensibilidade do Giroscópio</string>
     <string name="settings_control_gyroscope_invert_x_title">Inverter Eixo X</string>
     <string name="settings_control_gyroscope_invert_y_title">Inverter Eixo Y</string>
-    <string name="about_acknowledgements_github_community">Comunidade do Github</string>
-    <string name="about_acknowledgements_weblate_community">Comunidade do Weblate</string>
     <string name="mods_update">Atualizar Mods</string>
     <string name="mods_update_success">Atualização Bem-sucedido</string>
     <string name="settings_control_mouse_pointer_hotspot">Definir Ponto Focal</string>
@@ -1143,9 +1130,6 @@
     <string name="control_editor_special_joystick_style_background_rounded_corner">Raio do Canto do Fundo</string>
     <string name="control_editor_special_joystick_style_joystick_rounded_corner">Raio do canto do joystick</string>
     <string name="control_editor_special_joystick_style_joystick_size">Tamanho do joystick</string>
-    <string name="about_acknowledgements_mcim_text">%s usa a fonte espelho MCIM</string>
-    <string name="about_acknowledgements_github_community_text">Todos os autores de relatórios de problemas e colaboradores da comunidade GitHub</string>
-    <string name="about_acknowledgements_weblate_community_text">Todos os tradutores que participaram da tradução de idiomas da comunidade</string>
     <string name="upgrade_title">Verificar atualizações</string>
     <string name="upgrade_new">Nova versão encontrada</string>
     <string name="upgrade_more">Visualizar</string>
