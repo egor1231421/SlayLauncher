@@ -41,28 +41,24 @@ import androidx.lifecycle.viewModelScope
 import com.slaylauncher.BuildConfig
 import com.slaylauncher.R
 import com.slaylauncher.path.GLOBAL_CLIENT
-import com.slaylauncher.path.GLOBAL_JSON
-import com.slaylauncher.path.URL_PROJECT_INFO
 import com.slaylauncher.ui.components.MarqueeText
 import com.slaylauncher.ui.components.SimpleListDialog
 import com.slaylauncher.ui.screens.content.elements.DisabledAlpha
 import com.slaylauncher.ui.upgrade.UpgradeDialog
 import com.slaylauncher.ui.upgrade.UpgradeFilesDialog
-import com.slaylauncher.upgrade.GithubContentApi
+import com.slaylauncher.upgrade.GithubReleaseApi
 import com.slaylauncher.upgrade.RemoteData
 import com.slaylauncher.upgrade.TooFrequentOperationException
 import com.slaylauncher.upgrade.UpgradePrefs
 import com.slaylauncher.utils.logging.Logger
 import com.slaylauncher.utils.network.safeBodyAsJson
 import com.slaylauncher.utils.network.withRetry
-import com.slaylauncher.utils.string.decodeBase64
 import io.ktor.client.request.get
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import java.util.Locale
 import java.util.concurrent.TimeUnit
 
 private const val TAG = "LauncherUpgradeVM"
@@ -78,11 +74,30 @@ sealed interface LauncherUpgradeOperation {
 }
 
 /**
- * 最新版本的信息获取源
+ * Обновления берутся напрямую из GitHub Releases этого репозитория.
  */
-private const val LATEST_VERSION = "latest_version_md.json"
-private const val LATEST_API_URL = "$URL_PROJECT_INFO/$LATEST_VERSION"
-private const val LATEST_API_CHINESE_URL = "https://repo.miawa.cn/slay-info/v2/$LATEST_VERSION"
+private const val LATEST_API_URL =
+    "https://api.github.com/repos/egor1231421/SlayLauncher/releases/latest"
+
+/** Извлекает числовой номер версии из строки вида v2.8.2-slay или 2.8.2-debug. */
+private fun versionNumberFrom(value: String?): Int {
+    if (value.isNullOrBlank()) return 0
+    val match = Regex("(\\d+)\\.(\\d+)\\.(\\d+)").find(value) ?: return 0
+    val (major, minor, patch) = match.destructured
+    return major.toIntOrNull()?.times(10000)?.plus(
+        (minor.toIntOrNull() ?: 0) * 100 + (patch.toIntOrNull() ?: 0)
+    ) ?: 0
+}
+
+private fun archFromAssetName(name: String): RemoteData.RemoteFile.Arch {
+    return when {
+        name.contains("arm64", ignoreCase = true) -> RemoteData.RemoteFile.Arch.ARM64
+        name.contains("x86_64", ignoreCase = true) -> RemoteData.RemoteFile.Arch.X86_64
+        name.contains("x86", ignoreCase = true) -> RemoteData.RemoteFile.Arch.X86
+        name.contains("arm", ignoreCase = true) -> RemoteData.RemoteFile.Arch.ARM
+        else -> RemoteData.RemoteFile.Arch.ALL
+    }
+}
 
 /**
  * 用于记录启动器更新 ViewModel
@@ -187,34 +202,49 @@ class LauncherUpgradeViewModel: ViewModel() {
     }
 
     /**
-     * 从远端获取最新的启动器信息
+     * Получает информацию о последнем релизе напрямую из GitHub Releases.
      */
     private suspend fun fetchRemoteData(): RemoteData? {
         return withContext(Dispatchers.IO) {
             runCatching {
                 withRetry(logTag = "LauncherUpgrade", maxRetries = 2) {
-                    //获取最新的启动器信息
-                    val api = GLOBAL_CLIENT.get(LATEST_API_URL).safeBodyAsJson<GithubContentApi>()
-                    //需要Base64解密
-                    val contentString = decodeBase64(api.content)
-                    GLOBAL_JSON.decodeFromString(RemoteData.serializer(), contentString)
+                    val release = GLOBAL_CLIENT.get(LATEST_API_URL)
+                        .safeBodyAsJson<GithubReleaseApi>()
+
+                    val code = versionNumberFrom(release.tagName)
+                        .takeIf { it > 0 }
+                        ?: versionNumberFrom(release.name)
+                    if (code == 0) {
+                        throw IllegalStateException("Cannot parse version from release: ${release.tagName}")
+                    }
+
+                    val markdown = release.body.orEmpty().ifBlank { release.name.orEmpty() }
+                    val files = release.assets.map { asset ->
+                        RemoteData.RemoteFile(
+                            fileName = asset.name,
+                            uri = asset.browserDownloadUrl,
+                            arch = archFromAssetName(asset.name),
+                            size = asset.size
+                        )
+                    }
+
+                    RemoteData(
+                        code = code,
+                        version = release.tagName,
+                        createdAt = release.publishedAt,
+                        defaultCloudDrive = null,
+                        cloudDrives = emptyList(),
+                        files = files,
+                        defaultBody = RemoteData.RemoteBody("en", markdown),
+                        bodies = listOf(
+                            RemoteData.RemoteBody("en", markdown),
+                            RemoteData.RemoteBody("ru", markdown)
+                        )
+                    )
                 }
             }.getOrElse { e ->
-                if (Locale.getDefault().language == "zh") {
-                    runCatching {
-                        Logger.info(TAG, "Check for updates in the Chinese region.")
-                        //在中国地区，可能因为无法访问 Github API 导致获取更新信息失败
-                        withRetry(logTag = "LauncherUpgrade_Chinese", maxRetries = 2) {
-                            GLOBAL_CLIENT.get(LATEST_API_CHINESE_URL).safeBodyAsJson<RemoteData>()
-                        }
-                    }.getOrElse { e ->
-                        Logger.warning(TAG, "Failed to check for launcher upgrade!", e)
-                        null
-                    }
-                } else {
-                    Logger.warning(TAG, "Failed to check for launcher upgrade!", e)
-                    null
-                }
+                Logger.warning(TAG, "Failed to check for launcher upgrade!", e)
+                null
             }
         }
     }
@@ -233,7 +263,7 @@ class LauncherUpgradeViewModel: ViewModel() {
         onUpgrade: suspend (RemoteData) -> Unit,
         onIsLatest: suspend () -> Unit = {}
     ) {
-        val currentVersionCode = BuildConfig.VERSION_CODE
+        val currentVersionCode = versionNumberFrom(BuildConfig.VERSION_NAME)
         if (currentVersionCode < data.code) {
             //启动器为旧版本
             when {
