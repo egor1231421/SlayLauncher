@@ -6,8 +6,8 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.graphics.Outline
-import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
@@ -19,19 +19,16 @@ class SlayCutShape(
     private val topOnly: Boolean = false
 ) : Shape {
     override fun createOutline(size: Size, layoutDirection: LayoutDirection, density: Density): Outline {
-        val step = with(density) { cut.toPx() }.coerceAtMost(minOf(size.width, size.height) / 4f)
-        val sideEnd = if (topOnly) size.height else size.height - step
-        val path = Path().apply {
-            moveTo(step, 0f); lineTo(size.width - step, 0f); lineTo(size.width, step)
-            lineTo(size.width, sideEnd)
-            if (!topOnly) lineTo(size.width - step, size.height)
-            lineTo(step, size.height); lineTo(0f, sideEnd); lineTo(0f, step); close()
+        val shape = if (topOnly) {
+            RoundedCornerShape(topStart = cut, topEnd = cut, bottomStart = 0.dp, bottomEnd = 0.dp)
+        } else {
+            RoundedCornerShape(cut)
         }
-        return Outline.Generic(path)
+        return shape.createOutline(size, layoutDirection, density)
     }
 }
 
-/** Plate with independently chamfered corners, used for grouped settings cards. */
+/** Plate with independently rounded corners, used for grouped settings cards. */
 class SlayPlateShape(
     private val cutTopStart: Dp = 0.dp,
     private val cutTopEnd: Dp = 0.dp,
@@ -39,24 +36,12 @@ class SlayPlateShape(
     private val cutBottomEnd: Dp = 0.dp
 ) : Shape {
     override fun createOutline(size: Size, layoutDirection: LayoutDirection, density: Density): Outline {
-        val maxCut = minOf(size.width, size.height) / 3f
-        fun Dp.px(): Float = with(density) { toPx() }.coerceAtMost(maxCut)
-        val ts = cutTopStart.px()
-        val te = cutTopEnd.px()
-        val bs = cutBottomStart.px()
-        val be = cutBottomEnd.px()
-        val path = Path().apply {
-            moveTo(ts, 0f)
-            lineTo(size.width - te, 0f)
-            lineTo(size.width, te)
-            lineTo(size.width, size.height - be)
-            lineTo(size.width - be, size.height)
-            lineTo(bs, size.height)
-            lineTo(0f, size.height - bs)
-            lineTo(0f, ts)
-            close()
-        }
-        return Outline.Generic(path)
+        return RoundedCornerShape(
+            topStart = cutTopStart,
+            topEnd = cutTopEnd,
+            bottomEnd = cutBottomEnd,
+            bottomStart = cutBottomStart
+        ).createOutline(size, layoutDirection, density)
     }
 }
 

@@ -157,11 +157,9 @@ fun rememberSettingsCardShape(
     outerShape: Dp = 28.dp,
     innerShape: Dp = 4.dp
 ): Shape {
-    // Settings use the same chamfered plate language as the main lobby.
-    // The legacy shape arguments are kept for source compatibility.
-    val outer = 10.dp
-    val inner = 0.dp
-    return remember(position, outerShape, innerShape, outer, inner) {
+    // Скруглённые пластинки в едином стиле с остальным интерфейсом.
+    val outer = outerShape
+    return remember(position, outerShape, innerShape, outer) {
         when (position) {
             CardPosition.Top -> SlayPlateShape(cutTopStart = outer, cutTopEnd = outer)
             CardPosition.TopStart -> SlayPlateShape(cutTopStart = outer)
