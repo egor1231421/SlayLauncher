@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SlayLauncher logo: crossed neon blades with a cyan core. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:pathData="M54,10 L96,54 L54,98 L12,54 Z"
+        android:fillColor="#FF120A22"
+        android:strokeColor="#FFFF2E63"
+        android:strokeWidth="2" />
+    <path
+        android:pathData="M24,22 L36,16 L92,76 L80,88 Z"
+        android:fillColor="#FFFF2E63" />
+    <path
+        android:pathData="M84,22 L72,16 L16,76 L28,88 Z"
+        android:fillColor="#FFB06BFF" />
+    <path
+        android:pathData="M54,34 L72,54 L54,74 L36,54 Z"
+        android:fillColor="#FF00E5FF"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="1.5" />
+    <path
+        android:pathData="M54,42 L62,54 L54,66 L46,54 Z"
+        android:fillColor="#FFFFFFFF" />
+</vector>

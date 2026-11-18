@@ -33,3 +33,9 @@ LWJGL/*/build/
 
 .vscode/
 
+
+# Signing keys and release artifacts
+*.jks
+*.keystore
+*.apk
+*.aab

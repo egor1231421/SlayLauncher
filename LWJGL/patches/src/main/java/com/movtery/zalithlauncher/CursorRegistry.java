@@ -1,4 +1,4 @@
-package com.movtery.zalithlauncher;
+package com.slaylauncher;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

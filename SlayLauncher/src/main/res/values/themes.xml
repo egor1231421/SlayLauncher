@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="slay_splash_background">#FF07070B</color>
+    <style name="AppTheme.SlayLauncher" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">#161718</item>
+        <item name="android:statusBarColor">@color/slay_splash_background</item>
+        <item name="android:navigationBarColor">@color/slay_splash_background</item>
+    </style>
+    <style name="AppTheme.SplashScreen" parent="@style/Theme.SplashScreen">
+        <item name="postSplashScreenTheme">@style/AppTheme.SlayLauncher</item>
+        <item name="windowSplashScreenBackground">@color/slay_splash_background</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_launcher</item>
+        <item name="windowSplashScreenAnimationDuration">200</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">#161718</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>
